@@ -7,6 +7,9 @@ import ProductsWrapper from "../wrapper/ProductWrapper";
 import SingleProduct from "../pages/SingleProduct";
 import SingleBlog from "../pages/SingleBlog";
 import BlogsWrapper from "../wrapper/BlogsWrapper";
+import ProtectedRoute from "../pages/ProtectedRoute";
+import Cart from "../pages/Cart";
+import Login from "../components/Login";
 
 const router=createBrowserRouter([
     {
@@ -44,6 +47,20 @@ const router=createBrowserRouter([
                         element:<SingleBlog/>
                     }
 
+                ]
+            },
+            {
+                path:'/login',
+                element:<Login/>
+            },
+            {
+                path:'/',
+                element:<ProtectedRoute/>,
+                children:[
+                    {
+                        path:'cart',
+                        element:<Cart/>
+                    },
                 ]
             }
         ]
