@@ -19,7 +19,7 @@ const router=createBrowserRouter([
             },
             {
                 path:"/product",
-                element:<ProductsWrapper/>,
+                // element:<ProductsWrapper/>,
                 children:[
                     {
                         index:true,
