@@ -15,11 +15,17 @@ export const carouselImages = [
   {
     src: "https://static.zara.net/assets/public/7ab8/d332/3b3041aa87ec/2449ed02144e/image-landscape-default-d1ad5c0c-d076-431f-a2a4-02f543b3c1dd-default_0/image-landscape-default-d1ad5c0c-d076-431f-a2a4-02f543b3c1dd-default_0.jpg?ts=1727437294181&w=1920&f=auto",
     collection: "Denim Dreams",
-    tagline: "Woven",
+    tagline: "Timeless",
     description:
       "Effortlessly chic, this timeless denim brings a modern edge to your everyday style.",
   },
 ];
 
-export const COLLECTION="Collection";
-export const BY_NATURE="By Nature";
+export const COLLECTION = "Collection";
+export const BY_NATURE = "By Nature";
+export const cardData = [
+  "New here? Get your first-timer discount.",
+  "Worldwide delivery.",
+  "Easy returns.",
+  "On-time delivery.",
+];

@@ -33,7 +33,7 @@ const Banner = () => {
           <p className="text-[4rem] tracking-widest">
             {carouselImages[currentIndex].tagline}
           </p>
-        <p className="text-3xl uppercase tracking-widest">{BY_NATURE}</p>
+          <p className="text-3xl uppercase tracking-widest">{BY_NATURE}</p>
         </div>
       </div>
       <div className="absolute w-1/2 bottom-12 right-10 flex flex-col items-end ">
@@ -42,7 +42,7 @@ const Banner = () => {
             {carouselImages[currentIndex].description}
           </p>
           <div className="flex justify-center w-1/3 p-4 ">
-            <button className="uppercase bg-white py-3 px-10 text-black hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out">
+            <button className="uppercase bg-white py-3 px-10 text-black hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out hover:bg-black hover:text-white">
               Shop Now
             </button>
           </div>
