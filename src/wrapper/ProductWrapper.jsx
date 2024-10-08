@@ -1,14 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-const AppWrapper = () => {
+const ProductsWrapper = () => {
   return (
     <>
-    {/* <Header/> */}
+    
     <Outlet/>
-    {/* <Footer/> */}
+    
     </>
   )
 }
 
-export default AppWrapper
+export default ProductsWrapper
