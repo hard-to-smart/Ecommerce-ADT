@@ -3,11 +3,11 @@ import React from 'react'
 
 const AppWrapper = () => {
   return (
-    <
+    <>
     // <Header/>
     // <Outlet/>
     // <Footer/>
-    // </>
+    </>
   )
 }
 
