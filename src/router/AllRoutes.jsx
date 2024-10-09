@@ -11,6 +11,7 @@ import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
 
+
 const router=createBrowserRouter([
     {
         path:"/",
@@ -22,7 +23,7 @@ const router=createBrowserRouter([
             },
             {
                 path:"/product",
-                element:<ProductsWrapper/>,
+                // element:<ProductsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -36,7 +37,7 @@ const router=createBrowserRouter([
             },
             {
                 path:"/blog",
-                element:<BlogsWrapper/>,
+                // element:<BlogsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -62,7 +63,9 @@ const router=createBrowserRouter([
                         element:<Cart/>
                     },
                 ]
+
             }
+
         ]
     }
 ])
