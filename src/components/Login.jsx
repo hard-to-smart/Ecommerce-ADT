@@ -1,4 +1,7 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { auth } from "../firebase/firebase";
+import {toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const validate = (values) => {
@@ -20,8 +23,15 @@ const Login = () => {
     return errors;
   };
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async(values) => {
+    try {
+      await signInWithEmailAndPassword(auth,values.email,values.password)
+      toast.success("login successful!"); 
+      console.log("login succesfull")
+    } catch (error) {
+      
+    }
+   
   };
 
   return (
@@ -74,6 +84,7 @@ const Login = () => {
             </Form>
           )}
         </Formik>
+        <ToastContainer/>
       </section>
   );
 };
