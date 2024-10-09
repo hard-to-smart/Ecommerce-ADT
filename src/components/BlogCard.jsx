@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BlogCard = () => {
+const BlogCard = ({blog}) => {
   return (
     <div className='flex flex-col justify-center items-center min-h-screen bg-gray-50 w-[600px] h-[500px] px-2 py-2' >
     <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500 rounded-xl ">
