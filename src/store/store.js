@@ -4,6 +4,7 @@ import profileReducer from "./slices/ProfileSlice"
 
 import blogSlice from "./slices/blogSlice";
 import productReducer from "./slices/productSlice"
+import currencyReducer from "./slices/currencySice"
 
 
 
@@ -13,7 +14,8 @@ export const store = configureStore({
 
     profile:profileReducer,
     blog: blogSlice,
-    product:productReducer
+    product:productReducer,
+    currency:currencyReducer
 
   },
 })
