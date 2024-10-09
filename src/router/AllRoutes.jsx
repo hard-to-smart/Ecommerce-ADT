@@ -7,6 +7,7 @@ import ProductsWrapper from "../wrapper/ProductWrapper";
 import SingleProduct from "../pages/SingleProduct";
 import SingleBlog from "../pages/SingleBlog";
 import BlogsWrapper from "../wrapper/BlogsWrapper";
+import LoginSignupPage from "../pages/LoginSignupPage";
 
 const router=createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router=createBrowserRouter([
             },
             {
                 path:"/blog",
-                element:<BlogsWrapper/>,
+                // element:<BlogsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -45,7 +46,12 @@ const router=createBrowserRouter([
                     }
 
                 ]
+            },
+            {
+                path:"/authenticate",
+                element : <LoginSignupPage/>
             }
+
         ]
     }
 ])
