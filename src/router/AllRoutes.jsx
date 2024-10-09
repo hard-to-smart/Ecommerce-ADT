@@ -11,7 +11,11 @@ import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
 import Register from "../components/Register";
+
 import ProfileTest from "../components/Profiletest";
+
+import Loader from "../components/Loader/Loader";
+
 
 
 const router=createBrowserRouter([
@@ -80,6 +84,6 @@ const router=createBrowserRouter([
     }
 ])
 export const Allroutes = () => {
-    return <RouterProvider router={router} />;
+    return <RouterProvider router={router}  fallbackElement={<Loader/>}/>;
   };
   
