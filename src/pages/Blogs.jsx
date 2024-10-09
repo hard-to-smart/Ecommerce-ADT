@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Pagination from '../components/Pagination'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectorBlog, selectorBlogError } from '../store/slices/blogSlice'
+import { fetchBlog } from '../loader/fetchBlogs'
 
 const Blogs = () => {
-  const blogs = [
-    { name: "blog 1"},
-    { name: "blog 2"},
-    { name: "blog 3"},
-    { name: "blog 4"},
-    { name: "blog 4"},
-    { name: "blog 4"},
-    { name: "blog 4"},
-    { name: "blog 4"},
-    { name: "blog 4"},
-    
-  ]
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchBlog())
+  }, [dispatch])
+
+  // const isLoading = useSelector((state) => state.blog.isLoading)
+
+  const blogsData = useSelector(selectorBlog)
+  const error = useSelector(selectorBlogError)
+  if(error){
+    return error
+  }
+  
   return (
     <div>
-      <Pagination blogs={blogs}/>
+      <Pagination data={blogsData}/>
     </div>
   )
 }
