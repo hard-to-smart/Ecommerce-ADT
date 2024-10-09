@@ -10,7 +10,7 @@ import blogSlice from "./slices/blogSlice";
 export const store = configureStore({
   reducer: {
 
-    profile:profileReducer
+    profile:profileReducer,
 
     blog: blogSlice
 
