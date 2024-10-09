@@ -11,6 +11,7 @@ import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import ProfileTest from "../components/Profiletest";
 
 
 const router=createBrowserRouter([
@@ -58,6 +59,10 @@ const router=createBrowserRouter([
             {
                 path:'/register',
                 element:<Register/>
+            },
+            {
+                path:'/test',
+                element:<ProfileTest/>
             },
             {
                 path:'/',

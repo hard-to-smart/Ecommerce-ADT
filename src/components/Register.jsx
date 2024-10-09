@@ -49,6 +49,7 @@ const Register = () => {
           fullName: user.displayName,
         });
       }
+      window.location.href="/test"
       toast.success("Registration successful!"); 
     } catch (error) {
       console.error("Registration error:", error.message);
