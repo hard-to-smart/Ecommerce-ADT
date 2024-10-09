@@ -1,3 +1,5 @@
+
+
 import Banner from "../components/Banner";
 import FeatureCardList from "../components/FeatureCardList";
 import FeaturedProducts from "../components/FeaturedProducts";
@@ -11,5 +13,6 @@ const Home = () => {
     </div>
   );
 };
+
 
 export default Home;
