@@ -1,8 +1,11 @@
 import React from 'react'
+import SingleProductCard from '../components/SingleProductCard'
 
 const SingleProduct = () => {
   return (
-    <div>SingleProduct</div>
+    <div>
+      <SingleProductCard/>
+    </div>
   )
 }
 
