@@ -1,14 +1,18 @@
-import React from 'react'
-import ProductCard from '../components/ProductCard'
-import BlogCard from '../components/BlogCard'
+
+
+import Banner from "../components/Banner";
+import FeatureCardList from "../components/FeatureCardList";
+import FeaturedProducts from "../components/FeaturedProducts";
 
 const Home = () => {
   return (
-    <div>
-        <ProductCard/>
-        <BlogCard/>
+    <div className="bg-black">
+      <Banner />
+      <FeatureCardList />
+      <FeaturedProducts />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+
+export default Home;
