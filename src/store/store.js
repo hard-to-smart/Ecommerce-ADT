@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./slices/ProfileSlice"
 
 import blogSlice from "./slices/blogSlice";
+import productReducer from "./slices/productSlice"
 
 
 
@@ -10,9 +11,9 @@ import blogSlice from "./slices/blogSlice";
 export const store = configureStore({
   reducer: {
 
-    profile:profileReducer
-
-    blog: blogSlice
+    profile:profileReducer,
+    blog: blogSlice,
+    product:productReducer
 
   },
 })
