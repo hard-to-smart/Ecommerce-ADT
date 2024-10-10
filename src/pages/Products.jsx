@@ -1,27 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Pagination from '../components/Pagination'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProducts, selectProducts } from '../store/slices/productSlice'
+import { addToCart } from '../store/slices/cartSlice'
 
 const Products = () => {
-  const productsData = [
-    {
-      id: 1,
-      name: 'Product 1',
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-    },
-    {
-      id: 4,
-      name: 'Product 4',
-    },
-  ]
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
+  const productsData = useSelector(selectProducts)
+  const handleAddToCart = (product)=>{
+    dispatch(addToCart(product))
+  }
+
   return (
-    <Pagination data={productsData} />
+    <Pagination data={productsData} handleAddToCart={handleAddToCart} />
   )
 }
 

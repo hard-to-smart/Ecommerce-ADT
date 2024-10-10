@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header className="relative flex items-center justify-between px-4 py-4 text-white bg-gray-900 bg-opacity-80 shadow-lg">
       <div className="absolute inset-0 ">
-        <img src={navbg} className="object-fill w-full h-full" />
+        <img src={navbg} className="object-cover w-full h-full" />
       </div>
 
       <div className="absolute inset-0 bg-black opacity-30"></div>

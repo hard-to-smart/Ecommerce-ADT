@@ -3,7 +3,7 @@ import BlogCard from "./BlogCard";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import SingleProductCard from "./SingleProductCard";
 import ProductCard from "./ProductCard";
-const Pagination = ({ data }) => {
+const Pagination = ({ data, handleAddToCart }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const location = useLocation();
@@ -46,7 +46,6 @@ const Pagination = ({ data }) => {
     }
     return buttons;
   };
-  console.log(data);
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4 items-center">
@@ -57,7 +56,7 @@ const Pagination = ({ data }) => {
               key={singleData.id}
               state={{ singleData }}
             >
-              <ProductCard key={singleData.id} product={singleData} />
+              <ProductCard key={singleData.id} product={singleData} handleAddToCart={handleAddToCart}/>
             </Link>
           ) : (
             <Link
