@@ -4,6 +4,8 @@ import profileReducer from "./slices/ProfileSlice"
 
 import blogSlice from "./slices/blogSlice";
 import cartSlice from "./slices/cartSlice";
+import productReducer from "./slices/productSlice"
+import currencyReducer from "./slices/currencySice"
 
 
 
@@ -12,10 +14,10 @@ export const store = configureStore({
   reducer: {
 
     profile:profileReducer,
-
+    cart: cartSlice,
     blog: blogSlice,
-
-    cart: cartSlice
+    product:productReducer,
+    currency:currencyReducer
 
   },
 })
