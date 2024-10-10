@@ -3,10 +3,8 @@ import AppWrapper from "../wrapper/AppWrapper";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Blogs from "../pages/Blogs";
-import ProductsWrapper from "../wrapper/ProductWrapper";
 import SingleProduct from "../pages/SingleProduct";
 import SingleBlog from "../pages/SingleBlog";
-import BlogsWrapper from "../wrapper/BlogsWrapper";
 // import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
@@ -21,6 +19,7 @@ import SingleProductCard from "../components/SingleProductCard";
 import LoginTest from "../components/LoginTest";
 import LoginSignupPage from "../pages/LoginSignupPage";
 import ProtectedRoute from "../wrapper/ProtectedRoutes";
+import Error404 from "../pages/Error404";
 
 
 
@@ -36,7 +35,6 @@ const router=createBrowserRouter([
             },
             {
                 path:"/product",
-                // element:<ProductsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -50,7 +48,6 @@ const router=createBrowserRouter([
             },
             {
                 path:"/blog",
-                // element:<BlogsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -93,9 +90,16 @@ const router=createBrowserRouter([
                 //     },
                 // ]
 
+            },
+            {
+                path:"*",
+                element: <Error404/>
             }
 
         ]
+    },{
+        path:"*",
+        element: <Error404/>
     }
 ])
 export const Allroutes = () => {

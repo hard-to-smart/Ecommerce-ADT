@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { BY_NATURE, carouselImages, COLLECTION } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
+  // index tracker for current image
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // 4 second interval duration for banner
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => {
         return (prev + 1) % carouselImages.length;
       });
     }, 4000);
-
+    // clearing interval on unmount to prevent memory leak
     return () => {
       clearInterval(interval);
     };
@@ -18,12 +21,15 @@ const Banner = () => {
 
   return (
     <div className="relative w-full h-[90vh]  flex items-start">
+      {/* Banner container */}
       <div className="w-full h-[90vh]">
+        {/* current image */}
         <img
           className="w-full h-full object-cover"
           src={carouselImages[currentIndex].src}
         />
       </div>
+      {/* banner text overlay */}
       <div className="absolute w-1/2 text-white  top-8 right-10  flex  flex-col items-end  h-[80vh] ">
         <p className="uppercase text-2xl font-normal tracking-widest">
           {carouselImages[currentIndex].collection} {COLLECTION}
@@ -42,9 +48,12 @@ const Banner = () => {
             {carouselImages[currentIndex].description}
           </p>
           <div className="flex justify-center w-1/3 p-4 ">
-            <button className="uppercase bg-white py-3 px-10 text-black hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out hover:bg-black hover:text-white">
+            <Link
+              to="/product"
+              className="uppercase bg-white py-3 px-10 text-black hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out hover:bg-black hover:text-white"
+            >
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
