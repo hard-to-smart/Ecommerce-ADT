@@ -1,36 +1,39 @@
-import { useState } from "react";
-import Login from "../components/Login";
-import Register from "../components/Register";
+import React, { useState } from "react";
+import Login from "./Login";
+import Register from "./Register";
+import LoginTest from "../components/LoginTest";
+import RegisterTest from "../components/RegisterTest";
 
-const LoginSignupPage = () => {
-  const [showLogin, setShowLogin] = useState(true);
+const MainToggle = () => {
+  const [isLogin, setIsLogin] = useState(true);
+
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="button-container cursor-pointer">
-        <div className="mb-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg p-8 max-w-sm w-full">
+        <h2 className="text-3xl font-bold mb-6 text-center text-white">
+          {isLogin ? "Login" : "Register"}
+        </h2>
+
+        <div className="flex justify-center mb-4">
           <button
-            className={`px-4 py-2 mx-2 font-bold rounded-lg ${
-              showLogin ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => setShowLogin(true)}
+            className={`text-sm font-medium ${isLogin ? "text-white" : "text-gray-400"}`}
+            onClick={() => setIsLogin(true)}
           >
             Login
           </button>
+          <span className="mx-2 text-white">|</span>
           <button
-            className={`px-4 py-2 mx-2 font-bold rounded-lg ${
-              !showLogin ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-            onClick={() => setShowLogin(false)}
+            className={`text-sm font-medium ${!isLogin ? "text-white" : "text-gray-400"}`}
+            onClick={() => setIsLogin(false)}
           >
             Register
           </button>
         </div>
-        {
-          showLogin ? <Login /> : <Register />
-        }
+
+        {isLogin ? <LoginTest /> : <RegisterTest />}
       </div>
     </div>
   );
 };
 
-export default LoginSignupPage;
+export default MainToggle;
