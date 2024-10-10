@@ -20,7 +20,7 @@ const Blogs = () => {
   }
   
   return (
-    <div>
+    <div className='my-4'>
       <Pagination data={blogsData}/>
     </div>
   )

@@ -59,13 +59,7 @@ const Pagination = ({ data, handleAddToCart }) => {
               <ProductCard key={singleData.id} product={singleData} handleAddToCart={handleAddToCart}/>
             </Link>
           ) : (
-            <Link
-              to={`/blog/${singleData.id}`}
-              key={singleData.id}
-              state={{ singleData }}
-            >
-              <BlogCard key={singleData.id} blog={singleData} />
-            </Link>
+              <BlogCard key={singleData.id} blog={singleData} path={`/blog/${singleData.id}`} />
           )
         )}
       </div>
