@@ -1,8 +1,11 @@
 import React from "react";
 import Checkout from "../components/Checkout";
 import CartItemList from "../components/CartItemList";
+import { selectCartProducts } from "../store/slices/cartSlice";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+
   return (
     <div className="w-full p-4  flex justify-center mt-4">
       <div className="w-[70%]  flex justify-between">
@@ -11,7 +14,7 @@ const Cart = () => {
             <p className="uppercase tracking-widest font-bold">My cart</p>
             <p className="tracking-wide">Items are reserved for 60 min</p>
           </div>
-          <CartItemList />
+          <CartItemList  />
         </div>
         <Checkout />
       </div>

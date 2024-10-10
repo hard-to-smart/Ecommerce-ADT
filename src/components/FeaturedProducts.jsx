@@ -8,7 +8,7 @@ const FeaturedProducts = ({products}) => {
       </p>
       <div className="w-full flex justify-center mt-10 gap-5">
         {
-          products.map((product)=><ProductCard key={product?.id} {...product}/>)
+          products.map((product)=><ProductCard key={product?.id} product={product}/>)
         }
       </div>
     </div>

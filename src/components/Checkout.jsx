@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import BankCards from "./BankCards";
+import { selectTotal } from "../store/slices/cartSlice";
 
 const Checkout = () => {
+  const total = useSelector(selectTotal)
   return (
     <div className="w-[30%] h-[370px]  bg-white p-5 flex flex-col items-center shadow-xl">
       <p className="uppercase font-bold tracking-widest py-4 text-start w-full">
@@ -10,7 +13,7 @@ const Checkout = () => {
       <div className="font-semibold w-full flex flex-col items-center">
         <div className="flex w-full justify-between px-2 my-2">
           <p>Sub-total</p>
-          <p>$75</p>
+          <p>{total}</p>
         </div>
         <div className="flex w-full justify-between px-2 my-2">
           <p>Delivery</p>
