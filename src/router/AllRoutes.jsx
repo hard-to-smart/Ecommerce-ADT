@@ -18,6 +18,7 @@ import Loader from "../components/Loader/Loader";
 import Profile from "../pages/Profile";
 import Contact from "../pages/Contact";
 import SingleProductCard from "../components/SingleProductCard";
+import LoginTest from "../components/LoginTest";
 
 
 
@@ -61,7 +62,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/login',
-                element:<Login/>
+                element:<LoginTest/>
             },
             {
                 path:'/register',

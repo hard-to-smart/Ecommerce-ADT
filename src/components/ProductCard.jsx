@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoBagAddOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, selectCartProducts} from '../store/slices/cartSlice';
 const ProductCard = () => {
+  const cart = useSelector(selectCartProducts);
+  console.log( cart );
+  const dispatch = useDispatch()
   return (
-   
   <div className="flex flex-col justify-center items-center min-h-screen bg-gray-50">
     <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500 rounded-xl">
       <Link to="#">
@@ -18,7 +22,7 @@ const ProductCard = () => {
             <p className="text-sm text-gray-600 cursor-auto ml-2">$199</p>
           </del>
           <div className="ml-auto">
-            <Link to="#">
+            <Link to="#" onClick={()=> dispatch(addToCart(id))}>
              <IoBagAddOutline size={20}/>
             </Link>
           </div>

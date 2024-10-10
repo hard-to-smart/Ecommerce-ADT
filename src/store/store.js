@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./slices/ProfileSlice"
 
 import blogSlice from "./slices/blogSlice";
+import cartSlice from "./slices/cartSlice";
 
 
 
@@ -12,7 +13,9 @@ export const store = configureStore({
 
     profile:profileReducer,
 
-    blog: blogSlice
+    blog: blogSlice,
+
+    cart: cartSlice
 
   },
 })

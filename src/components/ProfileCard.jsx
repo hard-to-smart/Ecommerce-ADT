@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import SocialMediaIcons from "./SocialMediaIcons";
 import userAvatar from "../assets/avatar.png"
+import { FaPencil } from "react-icons/fa6";
+
 const ProfileCard = () => {
   const [changePassword, setChangePassword] = useState(false)
   const handleChangePassword=()=>{
     setChangePassword((prev)=> !prev)
   }
   return (
-    <div className=" p-8 bg-white/10 backdrop-blur-lg shadow-xl border border-white/20 rounded-lg w-96 h-96">
-    <img src={userAvatar} className="absolute -top-20 left-28 w-[100px] h-[100px]"/>
+    <div className="relative p-8 bg-white/10 backdrop-blur-lg shadow-xl border border-white/20 rounded-lg px-20 py-10 flex flex-col jusstify-center items-center ">
+
+      <div className="absolute rounded-full h-72 w-72 left-72 -top-10 opacity-50 bg-gradient-to-br from-green-400 to-gray-800 "></div>
+    <div className="absolute rounded-full h-60 w-60 right-72 -bottom-10 opacity-70 bg-gradient-to-br from-green-400 to-gray-800 "></div>
+    <img src={userAvatar} className="absolute -top-14 mx-auto w-[100px] h-[100px]"/>
       <div className="flex flex-col gap-6 justify-center">
       <div className=" text-center">
         <h2 className="text-2xl font-bold text-neutral-200">User Information</h2>
@@ -25,8 +30,8 @@ const ProfileCard = () => {
         </div>
         
       </div>
-        <div className="text-center">
-          <p className="font-bold text-lg text-neutral-300 cursor-pointer" onClick={handleChangePassword}>Change Password</p>
+        <div className="text-center gap-4 justify-center items-center text-white">
+          <p className="font-bold text-lg text-neutral-300 cursor-pointer" onClick={handleChangePassword}>Change Password </p>
           {
             changePassword && <input type="password"/>
           }
