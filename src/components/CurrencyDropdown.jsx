@@ -21,7 +21,7 @@ const CurrencyDropdown = () => {
   const isOpen = useSelector(selectIsOpen);
 
   return (
-    <div className="absolute w-64 z-10 top-12 left-4">
+    <div className="absolute w-64 z-10 top-8 left-4">
       <div
         className="bg-white/10 backdrop-blur-md p-4 rounded-lg shadow-lg cursor-pointer text-white flex items-center justify-between"
         onClick={() => dispatch(toggleDropdown(!isOpen))}

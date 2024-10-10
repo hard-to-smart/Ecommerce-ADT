@@ -5,7 +5,7 @@ import FeatureCard from "./FeatureCard";
 const FeatureCardList = () => {
   shuffleCardColors();
   return (
-    <div className="flex justify-center pb-7">
+    <div className="flex justify-center pb-7 pt-16">
       {cardData.map((info, index) => (
         <FeatureCard key={index} info={info} ind={index} />
       ))}
