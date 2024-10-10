@@ -19,6 +19,7 @@ import Profile from "../pages/Profile";
 import Contact from "../pages/Contact";
 import SingleProductCard from "../components/SingleProductCard";
 import LoginTest from "../components/LoginTest";
+import LoginSignupPage from "../pages/LoginSignupPage";
 
 
 
@@ -62,7 +63,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/login',
-                element:<LoginTest/>
+                element:<LoginSignupPage/>
             },
             {
                 path:'/register',

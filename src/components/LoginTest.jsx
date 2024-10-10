@@ -1,24 +1,24 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
-import { ToastContainer } from "react-toastify";
 
 const LoginTest = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  const validate = (values) => {
+  const validate= (values) => {
     const errors = {};
 
     if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!values.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/)) {
-      errors.email = "Invalid email address";
+      errors.email = 'Email is required';
+    } else if (!values.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/))  {
+      errors.email = 'Invalid email address';
     }
 
     if (!values.password) {
-      errors.password = "Password is required";
+      errors.password = 'Password is required';
     } else if (values.password.length < 6) {
-      errors.password = "Password must be at least 6 characters";
+      errors.password = 'Password must be at least 6 characters';
     }
+
 
     return errors;
   };
@@ -28,28 +28,7 @@ const LoginTest = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg p-8 max-w-sm w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center text-white">
-          {isLogin ? "Login" : "Register"}
-        </h2>
-
-        <div className="flex justify-center mb-4">
-          <button
-            className={`text-sm font-medium ${isLogin ? "text-white" : "text-gray-400"}`}
-            onClick={() => setIsLogin(true)}
-          >
-            Login
-          </button>
-          <span className="mx-2 text-white">|</span>
-          <button
-            className={`text-sm font-medium ${!isLogin ? "text-white" : "text-gray-400"}`}
-            onClick={() => setIsLogin(false)}
-          >
-            Register
-          </button>
-        </div>
-
+    <>
         <Formik
           initialValues={{ email: "", password: "" }}
           validate={validate}
@@ -104,9 +83,7 @@ const LoginTest = () => {
           )}
         </Formik>
 
-        <ToastContainer />
-      </div>
-    </div>
+    </>
   );
 };
 
