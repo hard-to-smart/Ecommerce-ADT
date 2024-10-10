@@ -7,6 +7,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import { useEffect } from "react";
 import { fetchProducts, selectError, selectIsLoading, selectProducts } from "../store/slices/productSlice";
 import Loader from "../components/Loader/Loader";
+import CurrencyDropdown from "../components/CurrencyDropdown";
 
 const Home = () => {
 
@@ -26,7 +27,8 @@ const Home = () => {
   if(error) return error
 
   return (
-    <div className="bg-black">
+    <div className="bg-black relative">
+      <CurrencyDropdown/>
       <Banner />
       <FeatureCardList />
       <FeaturedProducts products={products.slice(0,5)} />

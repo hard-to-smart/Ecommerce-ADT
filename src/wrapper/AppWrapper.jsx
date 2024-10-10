@@ -8,10 +8,7 @@ const AppWrapper = () => {
   return (
     <>
     <Header/>
-    <div className="relative">
-        {/* <CurrencyDropdown/> */}
-        <Outlet/>
-    </div>
+    <Outlet/>
     <Footer/>
     </>
   )

@@ -1,14 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-const BlogCard = ({blog}) => {
+const BlogCard = ({blog,path}) => {
+  
+
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen bg-gray-50 w-[600px] h-[500px] px-2 py-2' >
-    <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500 rounded-xl ">
-      <h1 className='mb-2'>here comes your title</h1>
-      <p className='mb-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus non cumque impedit quae cupiditate libero consequuntur fugit rerum quia soluta!</p>
-    <button className='px-2 py-2 bg-red-300 rounded-[50px]mb-2'>Read More</button>
-   </div>
-    </div>
+  
+       <div className="w-[475px] h-[405px]  bg-white shadow-2xl   rounded-xl z-10 relative mb-5" >
+       
+       
+        <div className=" absolute w-[70%]  h-1/2   rounded-xl top-[10%]   right-1/2 translate-x-1/2 ">
+          <p className="tracking-wide  p-4 text-black  font-bold text-xl ">{blog.title.charAt(0).toUpperCase()+blog.title.slice(1)}</p>
+          <div className="p-4 ">
+            <p className="text-lg text-gray-700 leading-relaxed  text-justify line-clamp-4">{blog.body+blog.body}</p>
+        </div>
+        </div>
+
+        <Link to={path} state={{blog}}>
+        <button className='px-8 py-3 uppercase bottom-10 absolute right-1/2 translate-x-1/2 bg-gradient-to-r from-yellow-500 to-red-500 text-white font-bold rounded-full border-none hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out hover:rotate-3'>Read More</button>
+        </Link>
+          
+        
+
+      </div>
+  
   )
 }
 
