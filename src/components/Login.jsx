@@ -25,8 +25,13 @@ const Login = () => {
 
   const handleSubmit = async(values) => {
     try {
-      await signInWithEmailAndPassword(auth,values.email,values.password)
-      toast.success("login successful!"); 
+      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      const user = userCredential.user;
+  
+      
+      const accessToken = await user.getIdToken();
+      localStorage.setItem("accessToken", accessToken);      toast.success("login successful!"); 
+    
       console.log("login succesfull")
     } catch (error) {
       

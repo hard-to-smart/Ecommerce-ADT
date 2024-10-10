@@ -9,7 +9,7 @@ const AppWrapper = () => {
     <>
     <Header/>
     <div className="relative">
-        <CurrencyDropdown/>
+        {/* <CurrencyDropdown/> */}
         <Outlet/>
     </div>
     <Footer/>

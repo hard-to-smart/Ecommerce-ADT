@@ -41,13 +41,16 @@ const Register = () => {
       await updateProfile(user, {
         displayName: values.fullName,
       });
-      console.log(user, "user data");
-
+      // console.log(user, "user data");
+      console.log(user.accessToken,"access totken")
       if (user) {
+        // const accessToken = await user.getIdToken();
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
           fullName: user.displayName,
+          accessToken: user.accessToken
         });
+        localStorage.setItem("accessToken", user.accessToken);
       }
       window.location.href="/test"
       toast.success("Registration successful!"); 
