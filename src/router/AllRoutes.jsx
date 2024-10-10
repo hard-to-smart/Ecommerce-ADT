@@ -15,6 +15,10 @@ import Register from "../components/Register";
 import ProfileTest from "../components/Profiletest";
 
 import Loader from "../components/Loader/Loader";
+import Profile from "../pages/Profile";
+import Contact from "../pages/Contact";
+import SingleProductCard from "../components/SingleProductCard";
+import LoginTest from "../components/LoginTest";
 
 
 
@@ -36,8 +40,8 @@ const router=createBrowserRouter([
                         element:<Products/>
                     },
                     {
-                        path:":id",
-                        element:<SingleProduct/>
+                        path: ':id',
+                        element:<SingleProductCard/>
                     }
                 ]
             },
@@ -58,7 +62,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/login',
-                element:<Login/>
+                element:<LoginTest/>
             },
             {
                 path:'/register',
@@ -67,6 +71,14 @@ const router=createBrowserRouter([
             {
                 path:'/test',
                 element:<ProfileTest/>
+            },
+            {
+                path:'/profile',
+                element:<Profile/>
+            },
+            {
+                path:'/contact',
+                element:<Contact/>
             },
             {
                 path:'/',
