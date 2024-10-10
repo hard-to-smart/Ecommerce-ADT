@@ -7,7 +7,7 @@ import ProductsWrapper from "../wrapper/ProductWrapper";
 import SingleProduct from "../pages/SingleProduct";
 import SingleBlog from "../pages/SingleBlog";
 import BlogsWrapper from "../wrapper/BlogsWrapper";
-import ProtectedRoute from "../pages/ProtectedRoute";
+// import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
 import Register from "../components/Register";
@@ -20,6 +20,8 @@ import Contact from "../pages/Contact";
 import SingleProductCard from "../components/SingleProductCard";
 import LoginTest from "../components/LoginTest";
 import LoginSignupPage from "../pages/LoginSignupPage";
+import ProtectedRoute from "../wrapper/ProtectedRoutes";
+
 
 
 
@@ -82,14 +84,14 @@ const router=createBrowserRouter([
                 element:<Contact/>
             },
             {
-                path:'/',
-                element:<ProtectedRoute/>,
-                children:[
-                    {
-                        path:'cart',
-                        element:<Cart/>
-                    },
-                ]
+                path:'/cart',
+                element:<ProtectedRoute><Cart/></ProtectedRoute>,
+                // children:[
+                //     {
+                //         path:'/cart',
+                //         element:<Cart/>
+                //     },
+                // ]
 
             }
 
