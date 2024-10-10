@@ -17,14 +17,14 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-screen  flex items-center">
+    <div className="relative w-full h-[90vh]  flex items-start">
       <div className="w-full h-[90vh]">
         <img
           className="w-full h-full object-cover"
           src={carouselImages[currentIndex].src}
         />
       </div>
-      <div className="absolute w-1/2 text-white  top-16 right-10  flex  flex-col items-end  h-[80vh] ">
+      <div className="absolute w-1/2 text-white  top-8 right-10  flex  flex-col items-end  h-[80vh] ">
         <p className="uppercase text-2xl font-normal tracking-widest">
           {carouselImages[currentIndex].collection} {COLLECTION}
         </p>
@@ -36,7 +36,7 @@ const Banner = () => {
           <p className="text-3xl uppercase tracking-widest">{BY_NATURE}</p>
         </div>
       </div>
-      <div className="absolute w-1/2 bottom-12 right-10 flex flex-col items-end ">
+      <div className="absolute w-1/2 bottom-28 right-10 flex flex-col items-end ">
         <div className="text-white  p-4 flex flex-col items-end w-full">
           <p className="text-xl uppercase whitespace-nowrap sm:whitespace-normal break-words  max-w-[450px] text-end tracking-widest">
             {carouselImages[currentIndex].description}
