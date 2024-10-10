@@ -23,12 +23,7 @@ const ContactForm = () => {
     }
 
   return (
-    <section
-        className="relative p-8 min-w-[350px]  w-full min-h-[400px] flex flex-col justify-center place-content-start rounded-xl shadow-lg border border-white/20"
-        style={{
-          backdropFilter: "blur(3px) saturate(162%)",
-          backgroundColor: "rgba( 0, 0, 0, 0.83)",
-        }}>
+    <>
     <h2 className="text-2xl font-bold text-white mb-4 text-center">Contact</h2>
 
       <Formik
@@ -73,7 +68,7 @@ const ContactForm = () => {
                 type="textarea"
                 name="message"
                 placeholder="Message...."
-                className="w-full  p-2 rounded-md bg-white/20 border border-white/40 focus:outline-none focus:border-blue-500"
+                className="w-full p-2 rounded-md bg-white/20 border border-white/40 focus:outline-none focus:border-blue-500"
               />
               <ErrorMessage
                 name="message"
@@ -94,7 +89,7 @@ const ContactForm = () => {
             )
         }}
       </Formik>
-    </section>
+      </>
   );
 };
 

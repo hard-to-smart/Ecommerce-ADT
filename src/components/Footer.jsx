@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
           <div className="px-5 py-2">
             <NavLink
-              to="blog"
+              to="contact"
               className={({ isActive }) =>
                 isActive
                   ? "text-neutral-300 font-medium leading-6"
