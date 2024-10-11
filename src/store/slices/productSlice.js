@@ -41,6 +41,18 @@ export const productSlice = createSlice({
         }
       );
     },
+
+    updateFilteredProducts: (state, action) => {
+      console.log("actionasljsdkjf", action.payload);
+
+      state.filteredProducts = action.payload;
+    },
+
+    updateFilteredProducts: (state, action) => {
+      console.log("actionasljsdkjf", action.payload);
+
+      state.filteredProducts = action.payload;
+    },
     
     filterByAvailability:(state,action)=>{
 
@@ -81,5 +93,6 @@ export const selectIsLoading = (state) => state.product.isLoading;
 export const selectError = (state) => state.product.error;
 export const selectFilteredProducts = (state) => state.product.filteredProducts;
 export const selectBrands=(state)=> state.product.brands;
-export const {setFilteredProducts,getBrandsFromFilteredProducts,resetBrands,filterByAvailability} =productSlice.actions;
+export const { setFilteredProducts,getBrandsFromFilteredProducts,resetBrands,filterByAvailability, updateFilteredProducts } =
+  productSlice.actions;
 export default productSlice.reducer;

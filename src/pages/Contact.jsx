@@ -1,5 +1,6 @@
 import ContactForm from '../components/ContactForm'
 import contactbanner from '../assets/contact-banner.png'
+import FilteringComponent from '../components/Filter/FilteringComponent';
 
 const Contact = () => {
   return (

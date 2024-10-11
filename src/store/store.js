@@ -6,6 +6,7 @@ import productReducer from "./slices/productSlice";
 import currencyReducer from "./slices/currencySice";
 import userReducer from "./slices/userSlice";
 import categoryReducer from "./slices/categorySlice";
+import wishlistReducer from "./slices/wishlistSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     product: productReducer,
     currency: currencyReducer,
     user: userReducer,
-    category:categoryReducer
+    category:categoryReducer,
+    wishlist: wishlistReducer
   },
 });

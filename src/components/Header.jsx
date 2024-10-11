@@ -3,7 +3,8 @@ import logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import navbg from "../assets/navbg.avif";
 import { FaUserAlt, FaBars, FaTimes } from "react-icons/fa"; // Add icons for mobile menu
-
+import { FaHeart } from "react-icons/fa";
+import Wishlist from "../pages/Wishlist";
 const Header = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
   const [openProfileDropdown, setOpenProfileDropdown] = useState(false);
@@ -114,9 +115,11 @@ const Header = () => {
       </ul>
 
       {/* User profile section */}
-      <div className="relative z-10">
+      <div className="relative flex flex-row justify-center items-center z-10 gap-4">
         {isUserLoggedIn ? (
           <>
+             <Link to='/wishlist'> <FaHeart size={22}/></Link>
+
             <div
               className="relative rounded-full w-[30px] h-[30px] bg-white hover:ring-2 ring-gray-200 text-slate-900 flex justify-center items-center font-bold"
               onClick={handleOpenProfileDropdown}

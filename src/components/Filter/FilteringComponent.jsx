@@ -6,6 +6,9 @@ import {  fetchCategories, resetState, selectCategories, selectFilterOptions, up
 import { useDispatch, useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { resetBrands, selectBrands } from "../../store/slices/productSlice";
+import FilterPrice from "./FilterPrice";
+import SearchBar from "./SearchBar";
+
 
 
 
@@ -48,6 +51,9 @@ const FilteringComponent = () => {
       </div>
       <hr className="border-gray-300 mt-2" />
       <div className="divide-y divide-gray-200 ">
+        {/* slider component to be made here */}
+        <SearchBar/>
+        <FilterPrice/>
         {filterOptions.map((category) => (
           <AccordionItem
             key={category.name}

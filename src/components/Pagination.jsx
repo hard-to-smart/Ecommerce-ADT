@@ -4,7 +4,9 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import SingleProductCard from "./SingleProductCard";
 import ProductCard from "./ProductCard";
 import FilteringComponent from "./Filter/FilteringComponent";
-const Pagination = ({ data, handleAddToCart }) => {
+
+const Pagination = ({ data, handleAddToCart, handleAddToWishlist }) => {
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const location = useLocation();
@@ -63,7 +65,7 @@ const Pagination = ({ data, handleAddToCart }) => {
               key={singleData.id}
               state={{ singleData }}
             >
-              <ProductCard key={singleData.id} product={singleData} handleAddToCart={handleAddToCart}/>
+              <ProductCard key={singleData.id} product={singleData} handleAddToCart={handleAddToCart} handleAddToWishlist={handleAddToWishlist}/>
             </Link>
           ) : (
               <BlogCard key={singleData.id} blog={singleData} path={`/blog/${singleData.id}`} />

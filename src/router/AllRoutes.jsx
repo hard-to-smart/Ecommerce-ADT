@@ -20,6 +20,7 @@ import LoginTest from "../components/LoginTest";
 import LoginSignupPage from "../pages/LoginSignupPage";
 import ProtectedRoute from "../wrapper/ProtectedRoutes";
 import Error404 from "../pages/Error404";
+import Wishlist from "../pages/Wishlist";
 
 
 
@@ -90,6 +91,14 @@ const router=createBrowserRouter([
                 //     },
                 // ]
 
+            },
+            // {
+            //     path:'/wishlist',
+            //     element:<ProtectedRoute><Wishlist/></ProtectedRoute>
+            // },
+            {
+                path:'/wishlist',
+                element:<Wishlist/>
             },
             {
                 path:"*",

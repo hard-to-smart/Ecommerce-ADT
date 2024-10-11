@@ -63,6 +63,7 @@ export const categorySlice = createSlice({
         state.currentBrand="";
         state.filterOptions=state.filterOptions.filter((option)=> option.name!="brands" && option.name!="category")
     }
+    
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.pending, (state) => {
