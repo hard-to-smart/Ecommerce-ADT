@@ -1,4 +1,4 @@
-import {NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 const Footer = () => {
@@ -43,7 +43,7 @@ const Footer = () => {
             </NavLink>
           </div>
         </nav>
-        <SocialMediaIcons/>
+        <SocialMediaIcons />
         <p className="mt-8 text-base leading-6 text-center text-gray-400">
           &copy; 2024 Ecommerce Website Inc. All rights reserved.
         </p>
@@ -53,6 +53,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-/// text-emerald will also look nice

@@ -3,10 +3,8 @@ import AppWrapper from "../wrapper/AppWrapper";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Blogs from "../pages/Blogs";
-import ProductsWrapper from "../wrapper/ProductWrapper";
 import SingleProduct from "../pages/SingleProduct";
 import SingleBlog from "../pages/SingleBlog";
-import BlogsWrapper from "../wrapper/BlogsWrapper";
 // import ProtectedRoute from "../pages/ProtectedRoute";
 import Cart from "../pages/Cart";
 import Login from "../components/Login";
@@ -19,11 +17,10 @@ import Profile from "../pages/Profile";
 import Contact from "../pages/Contact";
 import SingleProductCard from "../components/SingleProductCard";
 import LoginTest from "../components/LoginTest";
-<<<<<<< HEAD
 import LoginSignupPage from "../pages/LoginSignupPage";
-=======
 import ProtectedRoute from "../wrapper/ProtectedRoutes";
->>>>>>> 6ebd69f0cc6aa6af5c0ebc7bdf33a8b4826bddf8
+import Error404 from "../pages/Error404";
+
 
 
 
@@ -38,7 +35,6 @@ const router=createBrowserRouter([
             },
             {
                 path:"/product",
-                // element:<ProductsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -52,7 +48,6 @@ const router=createBrowserRouter([
             },
             {
                 path:"/blog",
-                // element:<BlogsWrapper/>,
                 children:[
                     {
                         index:true,
@@ -67,11 +62,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/login',
-<<<<<<< HEAD
                 element:<LoginSignupPage/>
-=======
-                element:<Login/>
->>>>>>> 6ebd69f0cc6aa6af5c0ebc7bdf33a8b4826bddf8
             },
             {
                 path:'/register',
@@ -99,9 +90,16 @@ const router=createBrowserRouter([
                 //     },
                 // ]
 
+            },
+            {
+                path:"*",
+                element: <Error404/>
             }
 
         ]
+    },{
+        path:"*",
+        element: <Error404/>
     }
 ])
 export const Allroutes = () => {
