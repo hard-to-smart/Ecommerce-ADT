@@ -8,7 +8,7 @@ const LoginSignupPage = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="flex items-center justify-center min-h-screen">
         <div className="bg-gray-900 bg-opacity-70 rounded-lg shadow-lg p-8 max-w-sm w-full">
           <div className="flex justify-center mb-4">
             <button

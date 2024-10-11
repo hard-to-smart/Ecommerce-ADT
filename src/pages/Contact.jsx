@@ -1,14 +1,18 @@
 import ContactForm from '../components/ContactForm'
+import contactbanner from '../assets/contact-banner.png'
 
 const Contact = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
-    <div className="bg-gray-900 bg-opacity-70  rounded-lg min-h-[500px] min-w-[500px] shadow-lg p-8 max-w-sm w-full">
-
-    <ContactForm/>
+    <div className="flex items-center justify-center min-h-screen px-4">
+      <div className="flex flex-col md:flex-row items-center md:items-start">
+        <img 
+          src={contactbanner} 
+          className="hidden md:block w-[400px] saturate-50 "
+        />
+        <ContactForm />
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
