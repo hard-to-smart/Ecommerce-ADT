@@ -6,6 +6,6 @@ export const filterOptions = [
     },
     {
       name:"Availability",
-      options:["Include Out of Stock"]
+      options:["Exclude Out of Stock"]
     }
   ];

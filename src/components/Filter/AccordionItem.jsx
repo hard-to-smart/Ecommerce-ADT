@@ -1,13 +1,24 @@
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCurrentCategory, selectCurrentCategory, setCategoryAndFilterProducts } from "../../store/slices/categorySlice";
+import { updateCurrentCategory, selectCurrentCategory, setCategoryAndFilterProducts, selectCurrentBrand, selectIsAvailable } from "../../store/slices/categorySlice";
+import { getBrandsFromFilteredProducts, selectBrands } from "../../store/slices/productSlice";
 
 const AccordionItem = ({ category, isOpen, onToggle }) => {
   const dispatch = useDispatch();
   const selectedCategory = useSelector(selectCurrentCategory);
+  const selectedBrand=useSelector(selectCurrentBrand);
+  const isAvailable=useSelector(selectIsAvailable);
 
   const handleCategorySelect = (option) => {
-    dispatch(setCategoryAndFilterProducts(option));
+    console.log("option",category.name)
+    dispatch(setCategoryAndFilterProducts({category:category.name,option}));
+    if(category.name === "category"){
+      dispatch(getBrandsFromFilteredProducts());
+    }
+    else if(category.name === "Availability"){
+      dispatch(updateIsAvailability(isAvailable))
+    }
+  
   };
 
   return (
@@ -18,6 +29,7 @@ const AccordionItem = ({ category, isOpen, onToggle }) => {
         aria-expanded={isOpen}
       >
         <div className="flex items-center space-x-3">
+          
           <span className="font-medium text-gray-800 uppercase">{category.name}</span>
         </div>
         {isOpen ? (
@@ -36,7 +48,7 @@ const AccordionItem = ({ category, isOpen, onToggle }) => {
               <input
                 type="radio" 
                 name={category.name} 
-                checked={selectedCategory === option} 
+                checked={category.name !=="brands" ? selectedCategory === option :selectedBrand === option } 
                 className="form-radio h-5 w-5 text-blue-600"
                 onChange={() => handleCategorySelect(option)} 
               />
