@@ -1,44 +1,67 @@
-import React, { useEffect } from 'react'
-import { getDoc, doc } from "firebase/firestore"
-import { useDispatch, useSelector } from 'react-redux'
-import { auth, db } from '../firebase/firebase' // Ensure db is correctly imported
-import { setUserData } from '../store/slices/ProfileSlice'
+// src/components/Profiletest.js
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { auth, db } from "../firebase/firebase";
+import { getDoc, doc } from 'firebase/firestore';
+import { ToastContainer, toast } from 'react-toastify';
+import { setUserData, clearUserData } from '../store/slices/userSlice';
 
-const ProfileTest = () => {
-    const dispatch = useDispatch()
-    const fullName = useSelector(state => state.profile.fullName) // Corrected usage inside the component
-    console.log(fullName,"fullname")
+const Profiletest = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.user); 
+    console.log({user});
+    // const accessToken = useSelector((state) => state.user.accessToken);
+
     const fetchUserData = async () => {
         auth.onAuthStateChanged(async (user) => {
-            if (user) {  // Ensure user exists before proceeding
-                const docRef = doc(db, "User", user.uid)
-                const docSnap = await getDoc(docRef)
+            if (user) {
+                const docRef = doc(db, "Users", user.uid);
+                const docSnap = await getDoc(docRef);
+
                 if (docSnap.exists()) {
-                    dispatch(setUserData(docSnap.data())) // Correctly dispatch data
+                    const userData = docSnap.data();
+                    console.log(userData)
+                    // const accessToken = await user.getIdToken();  
+                    dispatch(setUserData({ user: userData })); 
+                } else {
+                    console.log("User is not logged in");
                 }
             }
-        })
-    }
-
-    const handleLogOut = async () => {
-        try {
-            await auth.signOut()
-            console.log("logout")
-        } catch (error) {
-            console.error("Logout error:", error) // Handle logout errors
-        }
-    }
+        });
+    };
 
     useEffect(() => {
-        fetchUserData()
-    }, [])
+        fetchUserData();
+    }, []);
+
+    const handleSignOut = async () => {
+        try {
+            await auth.signOut();
+            dispatch(clearUserData()); 
+            toast.success("Logout successful!");
+            window.location.href = "/login";
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
 
     return (
         <div>
-            {fullName || "Loading..."}  
-            <button onClick={handleLogOut}>Logout</button>
+            {user ? (
+                <>
+                    <h3>{user.fullName}</h3>
+                    <h3>{user.email}</h3>
+                    {/* <h3>{user.accessToken}</h3> */}
+                    <button onClick={handleSignOut} className='bg-blue-500'>
+                        Log out
+                    </button>
+                </>
+            ) : (
+                <div>Logged Out</div>
+            )}
+            <ToastContainer />
         </div>
-    )
-}
+    );
+};
 
-export default ProfileTest
+export default Profiletest;
