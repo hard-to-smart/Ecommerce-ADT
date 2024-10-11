@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   error: null,
   filteredProducts: [],
+  brands:[]
 };
 
 export const fetchProducts = createAsyncThunk(
@@ -23,11 +24,41 @@ export const productSlice = createSlice({
   initialState: initialState,
   reducers: {
     setFilteredProducts: (state, action) => {
-      const selectedCategory = action.payload;
-      state.filteredProducts = state.products.filter(
-        product => product.category === selectedCategory
+      console.log("inside setfiltered",action.payload)
+      const selectedCategory = action.payload.option;
+      state.filteredProducts = state.products.filter(product => 
+        {
+          if(action.payload.category === "brands"){
+            return product.brand ===selectedCategory;
+          }
+          else if(action.payload.category === "Availability"){
+            return product.inStock;
+          }
+          else{
+           return  product.category === selectedCategory
+          }
+          
+        }
       );
     },
+    
+    filterByAvailability:(state,action)=>{
+
+      const filteredData=state.filteredProducts.filter((product)=> {
+        if(action.payload) return product.inStock
+      })
+      console.log(filteredData)
+      state.filteredProducts=filteredData;
+    },
+
+    resetBrands:(state)=>{
+      state.brands=[];
+    },
+
+    getBrandsFromFilteredProducts:(state)=>{
+        const brands=state.filteredProducts.map((product) => product.brand);
+        state.brands=brands;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -49,5 +80,6 @@ export const selectProducts = (state) => state.product.products;
 export const selectIsLoading = (state) => state.product.isLoading;
 export const selectError = (state) => state.product.error;
 export const selectFilteredProducts = (state) => state.product.filteredProducts;
-export const {setFilteredProducts} =productSlice.actions;
+export const selectBrands=(state)=> state.product.brands;
+export const {setFilteredProducts,getBrandsFromFilteredProducts,resetBrands,filterByAvailability} =productSlice.actions;
 export default productSlice.reducer;
