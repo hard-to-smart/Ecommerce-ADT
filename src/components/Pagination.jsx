@@ -3,6 +3,7 @@ import BlogCard from "./BlogCard";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import SingleProductCard from "./SingleProductCard";
 import ProductCard from "./ProductCard";
+import FilteringComponent from "./Filter/FilteringComponent";
 const Pagination = ({ data, handleAddToCart }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,8 +48,14 @@ const Pagination = ({ data, handleAddToCart }) => {
     return buttons;
   };
   return (
-    <>
-      <div className="flex flex-wrap justify-center gap-4 items-center">
+    
+    <div className="w-full  flex bg-gray-100 ">
+      {
+        location.pathname === "/product" && <FilteringComponent/>
+      }
+      
+      <div>
+      <div className="flex flex-wrap  gap-4 items-center m-5 justify-center">
         {dataToDisplay().map((singleData) =>
           location.pathname === "/product" ? (
             <Link
@@ -66,7 +73,11 @@ const Pagination = ({ data, handleAddToCart }) => {
       <div className="flex justify-center items-center gap-2 mt-4">
         {pageButtons()}
       </div>
-    </>
+      </div>
+   
+    </div>
+     
+  
   );
 };
 
