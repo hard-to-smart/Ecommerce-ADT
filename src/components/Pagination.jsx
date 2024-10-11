@@ -36,8 +36,8 @@ const Pagination = ({ data, handleAddToCart }) => {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-3 py-1 rounded ${
-            currentPage === i ? "bg-blue-500 text-white" : "bg-gray-200"
+          className={`px-3 py-1 rounded my-4 ${
+            currentPage === i ? "bg-slate-800 text-white" : "bg-gray-200"
           }`}
         >
           {i}
